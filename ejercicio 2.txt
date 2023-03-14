@@ -1,0 +1,42 @@
+class Categoria:
+    def __init__(self, nombre, descripcion):
+        self.nombre = nombre
+        self.descripcion = descripcion
+
+class Pelicula(Categoria):
+    def __init__(self, nombre, descripcion, titulo, director, lanzamiento):
+        super().__init__(nombre, descripcion)
+        self.titulo = titulo
+        self.director = director
+        self.lanzamiento = lanzamiento
+
+    def __str__(self):
+        return f"{self.titulo} ({self.lanzamiento}), dirigida por {self.director}"
+
+class Cliente:
+    def __init__(self, categoria):
+        self.categoria = categoria
+
+    def mostrar_pelicula(self):
+        if self.categoria == "Acción":
+            pelicula = Pelicula("Acción", "Películas de acción", "La matrix", "Lana Wachowski", 1999)
+        elif self.categoria == "Comedia":
+            pelicula = Pelicula("Comedia", "Películas de comedia", "Super cool", "Greg Mottola", 2007)
+        elif self.categoria == "Terror":
+            pelicula = Pelicula("Terror", "Películas de terror", "El cadaver", "Diederik Van Rooijen", 2018)
+        else:
+            pelicula = None
+
+        if pelicula:
+            print(f"Le recomendamos la siguiente película de {self.categoria}:")
+            print(pelicula)
+        else:
+            print("Lo siento, no pudimos encontrar una película para la categoría seleccionada.")
+
+
+
+
+
+
+
+
